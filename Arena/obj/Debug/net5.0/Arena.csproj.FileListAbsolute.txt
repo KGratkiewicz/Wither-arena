@@ -1,0 +1,16 @@
+F:\Studia WAT\C sharp\Arena\Arena\obj\Debug\net5.0\Arena.csprojAssemblyReference.cache
+F:\Studia WAT\C sharp\Arena\Arena\obj\Debug\net5.0\Arena.GeneratedMSBuildEditorConfig.editorconfig
+F:\Studia WAT\C sharp\Arena\Arena\obj\Debug\net5.0\Arena.AssemblyInfoInputs.cache
+F:\Studia WAT\C sharp\Arena\Arena\obj\Debug\net5.0\Arena.AssemblyInfo.cs
+F:\Studia WAT\C sharp\Arena\Arena\obj\Debug\net5.0\Arena.csproj.CoreCompileInputs.cache
+F:\Studia WAT\C sharp\Arena\Arena\bin\Debug\net5.0\Arena.exe
+F:\Studia WAT\C sharp\Arena\Arena\bin\Debug\net5.0\Arena.deps.json
+F:\Studia WAT\C sharp\Arena\Arena\bin\Debug\net5.0\Arena.runtimeconfig.json
+F:\Studia WAT\C sharp\Arena\Arena\bin\Debug\net5.0\Arena.runtimeconfig.dev.json
+F:\Studia WAT\C sharp\Arena\Arena\bin\Debug\net5.0\Arena.dll
+F:\Studia WAT\C sharp\Arena\Arena\bin\Debug\net5.0\ref\Arena.dll
+F:\Studia WAT\C sharp\Arena\Arena\bin\Debug\net5.0\Arena.pdb
+F:\Studia WAT\C sharp\Arena\Arena\obj\Debug\net5.0\Arena.dll
+F:\Studia WAT\C sharp\Arena\Arena\obj\Debug\net5.0\ref\Arena.dll
+F:\Studia WAT\C sharp\Arena\Arena\obj\Debug\net5.0\Arena.pdb
+F:\Studia WAT\C sharp\Arena\Arena\obj\Debug\net5.0\Arena.genruntimeconfig.cache
