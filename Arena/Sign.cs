@@ -55,11 +55,11 @@ namespace Arena.Signs
     {
         public Queen()
         {
-            this.SignName = "Queen: IDK";
+            this.SignName = "Queen: Health yourself";
         }
         public override void SignCast(StatisticCreatures.Statistic target)
         {
-            // ?
+            target.Healing(10);
         }
     }
 

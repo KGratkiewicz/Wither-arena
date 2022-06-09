@@ -23,7 +23,7 @@ namespace Arena.StatisticCreatures
         {
             string result = "Monster\n" + base.ToString();
             result += (this.Balance)? "Balance: Stand\n" : "Balance: Overturned \n";
-            result += "Strength: " + this.Strength + "(R" + this.AttackRange + "\n";
+            result += "Strength: " + this.Strength + "(R" + this.AttackRange + ")\n";
             return result;
         }
 
@@ -80,16 +80,19 @@ namespace Arena.StatisticCreatures
                 if (this.Stamina >= stamina)
                 {
                     this.Stamina -= stamina;
-                    if (this.InFlight)
+                    if (Math.Abs(this.Position - target.Position) <= this.AttackRange)
                     {
-                        target.GetDamage(this.Strength);
-                        return this.Strength;
-                    }
-                    else
-                    {
-                        target.GetDamage(this.Strength / 2);
-                        return this.Strength / 2;
-                    }
+                        if (this.InFlight)
+                        {
+                            target.GetDamage(this.Strength);
+                            return this.Strength;
+                        }
+                        else
+                        {
+                            target.GetDamage(this.Strength / 2);
+                            return this.Strength / 2;
+                        }
+                    }                    
                 }
             }
             return 0;
@@ -103,7 +106,26 @@ namespace Arena.StatisticCreatures
 
         public override int Attack(int stamina, Statistic target)
         {
-            this.Stamina -= stamina;
+            if (this.Balance == true)
+            {
+                if (this.Stamina >= stamina)
+                {
+                    this.Stamina -= stamina;
+                    if (Math.Abs(this.Position - target.Position) <= this.AttackRange)
+                    {
+                        if (Math.Abs(this.Position - target.Position) <= this.AttackRange/2)
+                        {
+                            target.GetDamage(this.Strength*2);
+                            return this.Strength*2;
+                        }
+                        else
+                        {
+                            target.GetDamage(this.Strength);
+                            return this.Strength;
+                        }
+                    }
+                }
+            }
             return 0;
         }
     }

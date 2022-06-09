@@ -15,6 +15,13 @@ namespace Arena.StatisticCreatures
         public Wither(string name, int health, int stamina, int position, int speed) : base(health, stamina, position, speed)
         {
             this.Name = name;
+            this.EqSign = new Signs.Igni();
+        }
+
+        public override void Reset(int position)
+        {
+            base.Reset(position);
+            this.EqSign = new Signs.Igni();
         }
 
         public void EquipWeapon(Weapons.Weapon weapon)
@@ -29,7 +36,7 @@ namespace Arena.StatisticCreatures
 
         public override int Attack(int stamina, Statistic target)
         {
-            if (this.Stamina > stamina)
+            if (this.Stamina >= stamina)
             {
                 int damage = this.EqWeapon.CountDamage(target) * this.Stamina / 100;
                 this.Stamina -= stamina;
@@ -45,7 +52,15 @@ namespace Arena.StatisticCreatures
 
         public void CastSign(Statistic target)
         {
-            this.EqSign.SignCast(target);
+            if (this.EqSign is Signs.Queen)
+            {
+                this.EqSign.SignCast(this);
+            }
+            else
+            {
+                this.EqSign.SignCast(target);
+            }
+            
         }
 
         public override string ToString()

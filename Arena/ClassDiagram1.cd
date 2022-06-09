@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Arena.Game">
+    <Position X="4.75" Y="17" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Arena.Game.MenuOption">
+        <TypeIdentifier>
+          <NewMemberFileName>Game.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Arena.Game.SignsOptions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Game.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Arena.Game.AiOption">
+        <TypeIdentifier>
+          <NewMemberFileName>Game.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Arena.Game.GameStatus">
+        <TypeIdentifier>
+          <NewMemberFileName>Game.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQBAAAAAACAAAAAEAAAYAoAAAFAQAAAAAAAIgAAQAAg=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.StatisticCreatures.Monster">
+    <Position X="21.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAEAAgAAAAAAABAAAAABAAAAIAAAAA=</HashCode>
+      <FileName>Monster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.StatisticCreatures.FlyingMonster">
+    <Position X="24.25" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAEAAAAAAAEAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Monster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.StatisticCreatures.Griffin">
+    <Position X="26.75" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Monster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.StatisticCreatures.Drowner">
+    <Position X="21.5" Y="20" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Monster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.StatisticCreatures.Statistic">
+    <Position X="24.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAIgADAQkAQAAAAARAKAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Statistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.StatisticCreatures.Oponent">
+    <Position X="21.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Statistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.StatisticCreatures.Human">
+    <Position X="24.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAIAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Statistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.StatisticCreatures.Wither">
+    <Position X="26.75" Y="13.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAFAAAABAQAAIAAgAAAAAAEAACAAAA=</HashCode>
+      <FileName>Wither.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Signs.Sign">
+    <Position X="6.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAEAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Sign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Signs.Igni">
+    <Position X="5.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Sign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Signs.Aard">
+    <Position X="7.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Sign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Signs.Queen">
+    <Position X="9.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Sign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Signs.Aksii">
+    <Position X="3" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Sign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Weapons.Weapon">
+    <Position X="6" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAACAAEAAAAAAAAAAAAAAAAABEAAAAAQAA=</HashCode>
+      <FileName>Weapons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Weapons.Crossbow">
+    <Position X="3.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Weapons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Weapons.SteelSword">
+    <Position X="6" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Weapons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Weapons.SilverSword">
+    <Position X="8.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Weapons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Signs.DecoratorSigns">
+    <Position X="6.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>DecoratorSigns.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Signs.DecoratorIgni">
+    <Position X="5.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>DecoratorSigns.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Signs.DecoratorAard">
+    <Position X="9.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>DecoratorSigns.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Signs.DecoratorQueen">
+    <Position X="3.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>DecoratorSigns.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Arena.Signs.DecoratorAksii">
+    <Position X="7.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>DecoratorSigns.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -10,16 +10,21 @@ namespace Arena
     {
         private readonly StatisticCreatures.Wither Wither;
         private readonly StatisticCreatures.Oponent Oponent;
+        private readonly SignsOptions EnchantedSign;
         private string LastRoundRaport;
         private int distance;
 
-        public Game(StatisticCreatures.Wither wither, StatisticCreatures.Oponent oponent)
+        public Game(StatisticCreatures.Wither wither, StatisticCreatures.Oponent oponent, SignsOptions enchantedSign)
         {
             this.Wither = wither;
             this.Oponent = oponent;
+            this.EnchantedSign = enchantedSign;
             this.LastRoundRaport = "First round";
             this.distance = Math.Abs(this.Wither.Position - this.Oponent.Position);
+        }
 
+        public void Start()
+        {
             GameStatus result;
             while ((result = this.GameRound()) == GameStatus.InProgress) ;
 
@@ -35,13 +40,15 @@ namespace Arena
                     Console.WriteLine("\nYou lose this game!");
                     break;
             }
+            ReadOption();
         }
         public override string ToString()
         {
             return this.Wither + "\n" + this.Oponent + "\nDistance : " + this.distance + "\n";
         }
 
-        public enum MenuOption { WeaponAttack, UseSign, Rest, MoveForoward, MoveBack }
+        public enum MenuOption { WeaponAttack, UseSign, Rest, MoveForoward, MoveBack, ChangeSign}
+        public enum SignsOptions {Igni, Aard, Queen, Aksii, None}
         public enum AiOption { Attack, Rest, MoveForoward, MoveBack, GetUp }
         public enum GameStatus { InProgress, Win, Lose, Draw }
         public void PlayerRound()
@@ -75,14 +82,73 @@ namespace Arena
                         this.Wither.Move(false, this.Oponent);
                         this.LastRoundRaport += "Wither moved back enemy\n";
                         break;
+                    case MenuOption.ChangeSign:
+                        ChangeSign();
+                        this.LastRoundRaport += "Wither changed sign\n";
+                        break;
                     default:
                         incorectOption = true;
-                        Console.WriteLine("Incorect option!");
+                        Console.WriteLine("\nIncorect option!");
                         break;
 
                 }
             }
             while (incorectOption);
+        }
+        
+        public void ChangeSign()
+        {
+            Console.WriteLine("\n1. Igni");
+            Console.WriteLine("2. Aard");
+            Console.WriteLine("3. Queen");
+            Console.WriteLine("4. Aksii");
+            Console.WriteLine("Your choose: ");
+            SignsOptions newSign = (SignsOptions)ReadOption();
+            
+            switch(newSign)
+            {
+                case SignsOptions.Igni:
+                    if(this.EnchantedSign == newSign)
+                    {
+                        this.Wither.EquipSign(new Signs.DecoratorIgni());
+                    }
+                    else
+                    {
+                        this.Wither.EquipSign(new Signs.Igni());
+                    }
+                    break;
+                case SignsOptions.Aard:
+                    if (this.EnchantedSign == newSign)
+                    {
+                        this.Wither.EquipSign(new Signs.DecoratorAard());
+                    }
+                    else
+                    {
+                        this.Wither.EquipSign(new Signs.Aard());
+                    }
+                    break;
+                case SignsOptions.Queen:
+                    if (this.EnchantedSign == newSign)
+                    {
+                        this.Wither.EquipSign(new Signs.DecoratorQueen());
+                    }
+                    else
+                    {
+                        this.Wither.EquipSign(new Signs.Aard());
+                    }
+                    break;
+                case SignsOptions.Aksii:
+                    if (this.EnchantedSign == newSign)
+                    {
+                        this.Wither.EquipSign(new Signs.DecoratorAksii());
+                    }
+                    else
+                    {
+                        this.Wither.EquipSign(new Signs.Aksii());
+                    }
+                    break;
+            }
+
         }
 
         public static string PrintPlayerMenu()
@@ -93,6 +159,7 @@ namespace Arena
             result += "3. Rest \n";
             result += "4. Move foroward \n";
             result += "5. Move back \n";
+            result += "6. Change sign\n";
             result += "Your choose: ";
             Console.WriteLine(result);
             return result;
@@ -110,29 +177,54 @@ namespace Arena
                 
         }
 
+        private AiOption MonsterAi()
+        {
+            var monster = this.Oponent as StatisticCreatures.Monster;
+            if (monster.Stamina < 10)
+                return AiOption.Rest;
+            if (monster.Balance != true)
+                return AiOption.GetUp;
+            if (this.distance <= monster.AttackRange)
+                return AiOption.Attack;
+            return AiOption.MoveForoward;
+
+
+        }
+
         public void AiRound()
         {
+            AiOption choose = AiOption.Rest;
             if (this.Oponent is StatisticCreatures.Human)
             {
-                AiOption choose = this.HumanAi();
-
-                switch (choose)
-                {
-                    case AiOption.Attack:
-                        int damage = this.Oponent.Attack(10, this.Wither);
-                        this.LastRoundRaport += "Oponent hit wither by weapon: " + damage + "\n";
-                        break;
-                    case AiOption.Rest:
-                        this.Oponent.Rest(20);
-                        this.LastRoundRaport += "Oponent rest his stamina by: 20\n";
-                        break;
-                    case AiOption.MoveForoward:
-                        this.Oponent.Move(true, this.Wither);
-                        this.LastRoundRaport += "Opnent moved foroward wither\n";
-                        break;
-                }
+                choose = this.HumanAi();
             }
-                
+
+            if (this.Oponent is StatisticCreatures.Monster)
+            {
+                choose = this.MonsterAi();
+            }
+
+            switch (choose)
+            {
+                case AiOption.Attack:
+                    int damage = this.Oponent.Attack(10, this.Wither);
+                    this.LastRoundRaport += "Oponent hit wither by weapon: " + damage + "\n";
+                    break;
+                case AiOption.Rest:
+                    this.Oponent.Rest(20);
+                    this.LastRoundRaport += "Oponent rest his stamina by: 20\n";
+                    break;
+                case AiOption.MoveForoward:
+                    this.Oponent.Move(true, this.Wither);
+                    this.LastRoundRaport += "Opnent moved foroward wither\n";
+                    break;
+                case AiOption.GetUp:
+                    var monster = this.Oponent as StatisticCreatures.Monster;
+                    monster.GetUp(2);
+                    this.LastRoundRaport += "Opnent get up\n";
+                    break;
+            }
+
         }
 
         public GameStatus GameRound()

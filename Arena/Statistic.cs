@@ -24,6 +24,12 @@ namespace Arena.StatisticCreatures
             return result;
         }
 
+        public virtual void Reset(int position)
+        {
+            this.Health = this.MaxHealth;
+            this.Stamina = this.MaxStamina;
+            this.Position = position;
+        }
         public Statistic(int health, int stamina, int position, int speed)
         {
             this.Health = health;
@@ -38,35 +44,43 @@ namespace Arena.StatisticCreatures
 
         public void Move(bool foroward, Statistic target)
         {
-            this.Stamina -= 1;
-            if(foroward)
+            if(this.Stamina > 0)
             {
-                if(this.Position < target.Position)
+                this.Stamina -= 1;
+                if (foroward)
                 {
-                    this.Position += this.Speed;
-                    if (this.Position > target.Position)
-                        this.Position = target.Position;
+                    if (this.Position < target.Position)
+                    {
+                        this.Position += this.Speed;
+                        if (this.Position > target.Position)
+                            this.Position = target.Position;
+                    }
+                    else
+                    {
+                        this.Position -= this.Speed;
+                        if (this.Position < target.Position)
+                            this.Position = target.Position;
+                    }
+
                 }
                 else
                 {
-                    this.Position -= this.Speed;
                     if (this.Position < target.Position)
-                        this.Position = target.Position;
+                    {
+                        this.Position -= this.Speed;
+                    }
+                    else
+                    {
+                        this.Position += this.Speed;
+                    }
+
                 }
-                
             }
             else
             {
-                if (this.Position < target.Position)
-                {
-                    this.Position -= this.Speed;
-                }
-                else
-                {
-                    this.Position += this.Speed;
-                }
-
+                this.Rest(20);
             }
+            
 
         }
 
@@ -86,6 +100,13 @@ namespace Arena.StatisticCreatures
         public void GetDamage(int health)
         {
             this.Health -= health;
+        }
+
+        public void Healing(int health)
+        {
+            this.Health += health;
+            if (this.Health > this.MaxHealth)
+                this.Health = this.MaxHealth;
         }
 
         public void Exhaustion(int exhaustion)
@@ -123,7 +144,7 @@ namespace Arena.StatisticCreatures
         }
         public override int Attack(int stamina, Statistic target)
         {
-            if(this.Stamina < stamina)
+            if(this.Stamina >= stamina)
             {
                 int damage = this.EqWeapon.CountDamage(target) * stamina / 10;
                 this.Stamina -= stamina;
